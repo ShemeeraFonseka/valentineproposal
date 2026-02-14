@@ -1,0 +1,591 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0) rotate(-180deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(10px) rotate(5deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5), 0 0 40px rgba(255, 105, 180, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.8), 0 0 60px rgba(255, 105, 180, 0.5);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Container */
+.valentine-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #c471ed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.celebration-bg {
+  background: linear-gradient(135deg, #ec4899 0%, #ef4444 50%, #9333ea 100%);
+}
+
+/* Floating Hearts */
+.floating-heart {
+  position: absolute;
+  animation: float linear infinite;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.hearts-explosion {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.celebration-content {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.progress-bar {
+  height: 8px;
+  width: 48px;
+  border-radius: 4px;
+  transition: all 0.5s;
+}
+
+.progress-active {
+  background: white;
+}
+
+.progress-inactive {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 48px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid rgba(236, 72, 153, 0.3);
+  animation: glow 2s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Sparkle Decorations */
+.sparkle {
+  position: absolute;
+  font-size: 24px;
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+.sparkle-top-right {
+  top: 16px;
+  right: 16px;
+}
+
+.sparkle-top-left {
+  top: 16px;
+  left: 16px;
+  animation-delay: 0.5s;
+}
+
+.sparkle-bottom-right {
+  bottom: 16px;
+  right: 16px;
+  animation-delay: 1s;
+}
+
+.sparkle-bottom-left {
+  bottom: 16px;
+  left: 16px;
+  animation-delay: 1.5s;
+}
+
+/* Fun Fact Section */
+.fact-box {
+  text-align: center;
+  margin-bottom: 32px;
+  animation: scale-in 0.5s ease-out;
+}
+
+.fact-icon {
+  margin: 0 auto 16px;
+  color: #facc15;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  display: block;
+}
+
+.fact-content {
+  background: linear-gradient(to right, #fce7f3, #f3e8ff, #fee2e2);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fact-text {
+  font-size: 24px;
+  color: #374151;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #f472b6, transparent);
+}
+
+.divider-heart {
+  color: #ec4899;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Question */
+.question {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 48px;
+  background: linear-gradient(to right, #db2777, #9333ea, #dc2626);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Buttons */
+.buttons-container {
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.yes-button {
+  background: linear-gradient(to right, #ec4899, #ef4444, #ec4899);
+  background-size: 200% 200%;
+  color: white;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  animation: gradient-shift 3s ease infinite, glow 2s ease-in-out infinite;
+}
+
+.yes-button:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.yes-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.yes-button:hover::before {
+  opacity: 0.3;
+}
+
+.button-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button-heart {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.no-button {
+  background: #9ca3af;
+  color: white;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out;
+  position: absolute;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Hint Box */
+.hint-box {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.hint-content {
+  background: #fce7f3;
+  border-radius: 50px;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hint-text {
+  color: #4b5563;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+}
+
+.hint-emoji {
+  font-size: 18px;
+}
+
+/* Bottom Emojis */
+.bottom-emojis {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  font-size: 40px;
+}
+
+.emoji-bounce {
+  display: inline-block;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Celebration Screen */
+.celebration-title {
+  font-size: 96px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 24px;
+  animation: bounce 1s ease-in-out infinite;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+.celebration-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  margin: 0 auto;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  animation: glow 2s ease-in-out infinite, scale-in 0.5s ease-out;
+}
+
+.celebration-heart-container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.celebration-heart {
+  color: white;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+.celebration-message {
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.celebration-subtitle {
+  font-size: 32px;
+  color: #fce7f3;
+  text-align: center;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.celebration-quote {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.celebration-quote p {
+  font-size: 20px;
+  color: white;
+  font-style: italic;
+  margin: 0;
+}
+
+.celebration-emojis {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.celebration-couple {
+  font-size: 72px;
+  text-align: center;
+  animation: rainbow 3s linear infinite;
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  animation: confetti 3s linear infinite;
+  font-size: 32px;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card,
+  .celebration-card {
+    padding: 24px;
+  }
+
+  .question {
+    font-size: 32px;
+  }
+
+  .fact-text {
+    font-size: 18px;
+  }
+
+  .yes-button,
+  .no-button {
+    padding: 12px 36px;
+    font-size: 20px;
+  }
+
+  .celebration-title {
+    font-size: 64px;
+  }
+
+  .celebration-message {
+    font-size: 32px;
+  }
+
+  .celebration-subtitle {
+    font-size: 24px;
+  }
+
+  .bottom-emojis {
+    font-size: 32px;
+  }
+
+  .celebration-emojis {
+    font-size: 36px;
+  }
+
+  .celebration-couple {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+
+  .question {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  .fact-text {
+    font-size: 16px;
+  }
+
+  .yes-button,
+  .no-button {
+    padding: 10px 24px;
+    font-size: 18px;
+  }
+
+  .celebration-title {
+    font-size: 48px;
+  }
+
+  .celebration-message {
+    font-size: 24px;
+  }
+
+  .celebration-subtitle {
+    font-size: 18px;
+  }
+
+  .hint-text {
+    font-size: 12px;
+  }
+}
