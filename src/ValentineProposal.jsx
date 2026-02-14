@@ -49,7 +49,7 @@ function ValentineProposal() {
     "Will you share your snacks with me? 🍟",
     "Will you let me steal your hoodies? 👕",
     "Will you watch my favorite shows with me? 📺",
-    "Will you be my player 2 in life? 🎮",
+    "Will you allow me to touch your boobies? 💝",
     "Will you let me have the last slice of pizza? 🍕",
     "Will you hold my hand in public? 🤝",
     "Will you send me good morning texts? ☀️",
